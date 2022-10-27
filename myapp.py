@@ -69,7 +69,7 @@ def heartRate():
 
     time_diff_minutes_rounded = round(time_diff_minutes, 2)
     rate = mostRecent["value"]
-    ret = {"heart rate" : rate, "time offset" :  str(hours-4) + " hours, and " + str(time_diff_minutes_rounded) + " minutes!"}
+    ret = {"heart rate" : rate, "time offset" :  str(hours-4) + " hours, and " + str(time_diff_minutes_rounded) + " minutes"}
     return jsonify(ret)
 
 @app.route("/steps/last", methods=["GET"])
@@ -99,7 +99,7 @@ def steps():
     summ = resp["summary"]
     numberSteps = summ["steps"]
     distanceTable = summ["distances"][0]
-    ret = {"step-count" : numberSteps, "distance" : distanceTable["distance"], "offset" : str(hours) + " hours and " + str(time_diff_minutes) + " minutes."}
+    ret = {"step-count" : numberSteps, "distance" : distanceTable["distance"], "offset" : str(hours) + " hours and " + str(time_diff_minutes) + " minutes"}
     return ret
 
 @app.route("/sleep/<date>", methods=["GET"])
